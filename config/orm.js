@@ -7,7 +7,7 @@ module.exports = {
   selectAll: function(cb) {
     connection.query('SELECT * FROM burger', (err, results, fields) => {
       if (err) {
-        return res.status(500).end()
+        throw err;
       }
       console.log(results);
       cb(results)
@@ -15,20 +15,20 @@ module.exports = {
   },
   insertOne: function(burger, cb) {
     connection.query('INSERT INTO burger SET ?', {
-      bureger_name: burger,
+      burger_name: burger,
       devoured: false
     }, (err, results, fields) => {
       if (err) {
-        return res.status(500).end();
+        throw err;
       }
-      cd(results)
+      cb(results)
     })
   },
   updateOne: function(burger_id, cb) {
     connection.query('UPDATE burger SET ? WHERE ?', [{devoured: true}, {id: burger_id}],
   (err, results, fields) => {
     if (err) {
-      res.status(500).end();
+      throw err;
     }
     cb(results);
   })
