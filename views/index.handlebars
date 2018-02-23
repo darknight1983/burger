@@ -1,1 +1,31 @@
-<h1>Welcome to the Burger App</h1>
+
+<div class="container content">
+  <div class="row">
+    <div class="col-md-4">
+      <ul class="list-group">
+        {{#each allBurgers }}
+          {{#unless devoured}}
+            <li class="list-group-item burger-item" data-id="{{this.id}}">{{burger_name}}</li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <form id="burger-form">
+        <div class="form-group">
+          <label for="enterHamburger">Enter Your Burger!</label>
+          <input class="form-control form-control-lg" type="text" id="enterHamburger">
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <ul class="list-group">
+        {{#each allBurgers}}
+          {{#if this.devoured}}
+              <li class="list-group-item ate-up" data-id="{{this.id}}">{{this.burger_name}}</li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

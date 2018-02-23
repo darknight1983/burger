@@ -7,15 +7,17 @@ const Router = express.Router();
 
 
 Router.get('/', (req, res) => {
-  burger.allBurgers((allburgers) => {
-    res.json(allburgers);
+  burger.allBurgers((burgers) => {
+    let yummyThings = {
+      allBurgers: burgers
+    }
+    res.render('index', yummyThings);
   });
 });
 
 Router.post('/api/addBurger', (req, res) => {
-  console.log(req.body.burger)
   burger.addBurger(req.body.burger, (results) => {
-    res.json({ id: results.insertId });
+    res.json(results);
   });
 });
 
