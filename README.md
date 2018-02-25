@@ -7,7 +7,7 @@ Please check out the launched app on Heroku [here](https://quiet-dusk-45118.hero
 
 
 ### Functionality
-Using an home-grown ORM, the app has 3 basic CRUD functions...
+The app has 3 basic CRUD functions...
   1. READ all entries from the MySQL database and display them to the DOM using Handlebars.
   2. UPDATE a selected burger by hovering over the burger and clicking
     * hits an `/api/updateBurger/:burger_id` route in Express to change its "devoured" status in the MySQL database
